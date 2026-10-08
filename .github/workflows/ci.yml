@@ -1,0 +1,41 @@
+# CI —— 构建检查与回归防护（每次 PR、每次 main push 都跑）
+# 项目是 Swift + bash 的 macOS 工具，须跑 macOS runner（swiftc 仅 macOS 有）。
+# 检查项：
+#   1. Swift 编译检查（swiftc -O）
+#   2. --version 输出与仓库根 VERSION 一致（源码与 VERSION 不漂移）
+#   3. shell 脚本语法（bash -n）
+#   4. shellcheck 静态检查（warning 档）
+
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: macos-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Swift build
+        run: swiftc -O copybridge.swift -o /tmp/copybridge-ci
+
+      - name: Version consistency (--version vs VERSION)
+        run: |
+          SRC_VER="$(/tmp/copybridge-ci --version | awk '{print $2}')"
+          FILE_VER="$(tr -d '[:space:]' < VERSION)"
+          echo "source=$SRC_VER VERSION=$FILE_VER"
+          [ "$SRC_VER" = "$FILE_VER" ] || { echo "版本号不一致"; exit 1; }
+
+      - name: Shell scripts syntax
+        run: bash -n install.sh && bash -n uninstall.sh && bash -n build.sh
+
+      - name: ShellCheck
+        run: |
+          command -v shellcheck >/dev/null 2>&1 || brew install -q shellcheck
+          shellcheck -S warning install.sh uninstall.sh build.sh
