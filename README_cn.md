@@ -2,7 +2,7 @@
   <img src="assets/logo.svg" alt="copybridge" width="640">
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](LICENSE.md)
-  [![Version](https://img.shields.io/badge/Version-0.1.0-blue)](CHANGELOG.md)
+  [![Version](https://img.shields.io/badge/Version-0.1.1-blue)](CHANGELOG.md)
   [![Type](https://img.shields.io/badge/Type-macOS%20Tool-0D9488)](#)
   [![Visitors](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/xhqing/xhqing/main/traffic/badges/copybridge.json)](https://github.com/xhqing)
 

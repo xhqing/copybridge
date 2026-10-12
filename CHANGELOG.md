@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.1.1] - 2026-10-12
 
 ### 变更（按 2026-10-12 新规清理随附的智能体专属文件 CLAUDE.md / AGENTS.md）
 

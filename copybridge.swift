@@ -22,7 +22,7 @@ let fileNamesType = NSPasteboard.PasteboardType("NSFilenamesPboardType")
 let fileURLType = NSPasteboard.PasteboardType("public.file-url")
 let uriListType = NSPasteboard.PasteboardType("text/uri-list")
 
-let version = "0.1.0"
+let version = "0.1.1"
 let pollInterval: TimeInterval = 0.2
 let runOnce = CommandLine.arguments.contains("--once")
 
