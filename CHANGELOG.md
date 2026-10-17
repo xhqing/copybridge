@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [未发布]
+
+### 变更（新增指回负责 Agent 的软链接：AGENTS.md、.pi）
+
+- **为什么改**：用户 2026-10-17 决定把 Agent 与子项目关系统一为「Agent 进驻子项目」网络（取代 2026-10-12 的「子项目不得有智能体专属文件」）：子项目根目录挂两条指回负责 Agent 的相对路径软链接，随仓库提交——在子项目目录开会话即继承负责 Agent 的身份 / 规则 / 技能；本仓库作为 Kit（ExecutiveAssistantAgent）的子项目相应挂链。
+- **改了什么**：根目录新增两条软链接——`AGENTS.md → ../ExecutiveAssistantAgent/AGENTS.md`、`.pi → ../ExecutiveAssistantAgent/.pi`。（单独 clone 到别处时链接悬空，无害。）
+
 ## [0.1.1] - 2026-10-12
 
 ### 变更（按 2026-10-12 新规清理随附的智能体专属文件 CLAUDE.md / AGENTS.md）
